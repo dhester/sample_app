@@ -87,3 +87,28 @@ padding: 20px;
 -webkit-border-radius: 10px;
 border-radius: 10px;
 }
+
+footer {
+text-align: center;
+margin-top: 10px;
+width: 710px;
+margin-left: auto;
+margin-right: auto;
+}
+footer nav {
+float: none;
+}
+footer {
+text-align: center;
+margin-top: 10px;
+width: 710px;
+margin-left: auto;
+margin-right: auto;
+}
+footer nav {
+float: none;
+}
+nav {
+float: right;
+}
+
