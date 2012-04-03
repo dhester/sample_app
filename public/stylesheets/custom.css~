@@ -108,7 +108,5 @@ margin-right: auto;
 footer nav {
 float: none;
 }
-nav {
-float: right;
-}
+
 

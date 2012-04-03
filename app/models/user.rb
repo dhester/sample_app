@@ -32,7 +32,9 @@ private
 
 def encrypt_password
 self.salt = make_salt unless has_password?(password)
-self.encrypted_password = encrypt(password)
+self.encrypted_password = encrypt(password)it "should find the right user" do
+get :show, :id => @user
+assigns(:user).should == @user
 end
 
 def encrypt(string)
