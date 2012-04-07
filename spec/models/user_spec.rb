@@ -124,6 +124,10 @@ end
 end
 describe "authenticate method" do
 
+it "should exist" do
+User.should respond_to(:authenticate)
+end
+
 it "should return nil on email/password mismatch" do
 wrong_password_user = User.authenticate(@attr[:email], "wrongpass")
 wrong_password_user.should be_nil
