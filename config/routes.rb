@@ -1,13 +1,16 @@
 SampleApp::Application.routes.draw do
 
 resources :users
+resources: :sessions, :only => [:new, :create, :destroy] 
+
 root :to => 'pages#home'
 
 match '/contact', :to => 'pages#contact'
 match '/about', :to => 'pages#about'
 match '/help', :to => 'pages#help'
 match '/signup', :to => 'users#new'
-
+match '/signin', :to => 'sessions#new'
+match '/signout', :to => 'sessions#destroy'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -15,6 +18,7 @@ match '/signup', :to => 'users#new'
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
+
 
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
