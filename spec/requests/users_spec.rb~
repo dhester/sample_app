@@ -42,6 +42,10 @@ describe "signin/out" do
     fill_in :email, :with => ""
     fill_in :password, :with => ""
     click_button
+    user = Factory(:user)
+    user.email = ""
+    user.password = ""
+    integration_sign_in(user)
     response.should have_selector("div.flash.error", :content => "Invalid")
      
   end
@@ -61,4 +65,4 @@ controller.should_not be_signed_in
    end
   end
  end
-
+end
