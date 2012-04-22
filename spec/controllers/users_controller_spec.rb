@@ -188,7 +188,7 @@ end
 it "should have a flash message" do
  put :update, :id => @user, :user => @attr
  flash[:success].should =~ /updated/
-
+     end
     end
    end
 describe "authentication of edit/update pages" do
