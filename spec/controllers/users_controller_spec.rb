@@ -119,8 +119,7 @@ end
 end
   describe "GET 'new'" do
 
-    it "should b
-e successful" do
+    it "should be successful" do
       get :new
       response.should be_success
     end

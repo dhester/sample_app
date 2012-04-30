@@ -1,7 +1,7 @@
 <h1>Sign in</h1>
 
 <%= form_for(:session, :url => sessions_path) do |f| %>
-
+<%= render 'shared/error_messages', :object => f.object %>
  <div class="field">
   <%= f.label :email %><br />
   <%= f.text_field :email %>
@@ -17,3 +17,7 @@
  </div>
 
 <% end %>
+
+<p>New user? <%= link_to "Sign up now!", signup_path %></p>
+
+
