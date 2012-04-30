@@ -24,6 +24,29 @@ end
     response.body.should_not =~ /<body>\s*<\/body>/
      end
  
+describe "for signed-in users" do
+
+before(:each) do
+@user = test_sign_in(Factory(:user))
+35.times do |n|
+Factory(:micropost, :user => @user, :content => "Foo bar #{ n + 1}")
+end
+end
+
+it"should pluralize count" do 
+get 'home'
+response.should have_selector('span', :content => "35 microposts")
+end
+
+it"should have pagination for microposts" do 
+get 'home'
+response.should have_selector("div.pagination")
+response.should have_selector("span.disabled", :content => "Previous")
+response.should have_selector("a", :href => "/?page=2", :content => "2")
+response.should have_selector("a", :href => "/?page=2", :content => "Next")
+end
+end
+
   describe "GET 'contact'" do
     it "should be successful" do
       get 'contact'
@@ -47,7 +70,6 @@ describe "GET 'about'" do
 		:content => @base_title + " | About") 
     end
 end
-
 describe "GET 'help'" do
     it "should be successful" do
       get 'help'
